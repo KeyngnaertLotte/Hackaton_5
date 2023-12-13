@@ -1,7 +1,3 @@
-# main.py
-#!/usr/bin/env python
-
-
 from src.backbone import TFLiteModel, get_model
 from src.landmarks_extraction import mediapipe_detection, draw, extract_coordinates, load_json_file 
 from src.config import SEQ_LEN, THRESH_HOLD
