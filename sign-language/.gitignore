@@ -5,6 +5,9 @@ test.py
 *$py.class
 .vscode/
 
+
+sign-language/
+
 # C extensions
 *.so
 

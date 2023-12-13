@@ -70,3 +70,4 @@ Werkzeug==2.3.4
 wrapt==1.14.1
 zipp==3.15.0
 pillow>=10.0.1
+pyttsx3==2.90
