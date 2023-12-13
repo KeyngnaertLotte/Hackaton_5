@@ -17,6 +17,8 @@ coverage
 /cypress/videos/
 /cypress/screenshots/
 
+/sign-language/sign-language/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
