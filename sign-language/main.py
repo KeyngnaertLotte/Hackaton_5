@@ -115,9 +115,18 @@ def real_time_asl():
             # Concatenate the white column to the image
             image = np.concatenate((white_column, image), axis=0)
             
-            cv2.putText(image, f"{', '.join(str(x) for x in res)}", (3, 65),
-                                cv2.FONT_HERSHEY_SIMPLEX, 3, (0, 0, 0), 2, cv2.LINE_AA)
-                            
+            cv2.putText(
+    image,
+    f"Recognized Signs: {', '.join(str(x) for x in res)}",
+    (10, 20),
+    cv2.FONT_HERSHEY_DUPLEX,
+    0.8,  # Font scale
+    (0, 0, 0),  # Text color (white)
+    1,  # Font thickness
+    cv2.LINE_AA,
+    False  # Anti-aliasing
+)
+          
             cv2.imshow('Webcam Feed',image)
             
             # Wait for a key to be pressed.
