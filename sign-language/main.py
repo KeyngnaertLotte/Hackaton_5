@@ -9,6 +9,30 @@ import numpy as np
 import cv2
 import time
 import mediapipe as mp
+import threading
+
+# threading
+def text_to_speech(text):
+    """
+    Convert text to speech.
+
+    This function converts the given text to speech using the pyttsx3 library.
+
+    Args:
+        text: The text to be converted to speech.
+
+    Returns:
+        None
+    """
+    import pyttsx3
+    engine = pyttsx3.init()
+    engine.say(text)
+    print("now saying: ", text)
+    engine.runAndWait()
+
+text = ""
+
+
 
 mp_holistic = mp.solutions.holistic 
 mp_drawing = mp.solutions.drawing_utils
@@ -81,8 +105,12 @@ def real_time_asl():
             image = cv2.flip(image, 1)
             
             # Insert the sign in the result set if sign is not empty.
-            if sign != "" and decoder(sign) not in res:
+            if sign != "":
                 res.insert(0, decoder(sign))
+                global text
+                t1 = threading.Thread(target=text_to_speech, args=(decoder(sign),))
+                t1.start()
+                # text_to_speech(decoder(sign))
             
             # Get the height and width of the image
             height, width = image.shape[0], image.shape[1]
@@ -107,5 +135,7 @@ def real_time_asl():
 
         cap.release()
         cv2.destroyAllWindows()
+
+
 
 real_time_asl()
